@@ -8,7 +8,8 @@ public:
     int y;
     int vx;
     int vy;
-    int width = 24;
-    int height = 24;
+    static constexpr int width = 24;// we can change const variable every single time we call the function 
+                                    //whilee we cannot change constexpr variable no matter how many times the function is called.
+    static constexpr int height = 24;// static members are shared all over with every object; It can be accessed with the expression: Poo::width
     bool isEaten = false;
 };
