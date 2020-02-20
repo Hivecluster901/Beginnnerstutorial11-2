@@ -71,6 +71,65 @@ void Game::UpdateModel()
         dudeX = ClampScreenX(dudeX, dudeWidth);
         dudeY = ClampScreenY(dudeY, dudeHeight);
 
+        poo0X += poo0vx;
+        poo0Y += poo0vy;
+        poo1X += poo1vx;
+        poo1Y += poo1vy;
+        poo2X += poo2vx;
+        poo2Y += poo2vy;
+
+        {
+            const int poo0Xold = poo0X; // remember x position of the poo.
+            const int poo0Yold = poo0Y;// remember y position of the poo.
+
+            poo0X = ClampScreenX(poo0X, pooWidth);
+
+            if (poo0X != poo0Xold)
+            {
+                poo0vx = -poo0vx;
+            }
+
+            poo0Y = ClampScreenY(poo0Y, pooHeight);
+            if (poo0Y != poo0Yold)
+            {
+                poo0vy = -poo0vy;
+            }
+        }
+        {
+            const int poo1Xold = poo1X; // remember x position of the poo.
+            const int poo1Yold = poo1Y;// remember y position of the poo.
+
+            poo1X = ClampScreenX(poo1X, pooWidth);
+
+            if (poo1X != poo1Xold)
+            {
+                poo1vx = -poo1vx;
+            }
+
+            poo1Y = ClampScreenY(poo1Y, pooHeight);
+            if (poo1Y != poo1Yold)
+            {
+                poo1vy = -poo1vy;
+            }
+        }
+        {
+            const int poo2Xold = poo2X; // remember x position of the poo.
+            const int poo2Yold = poo2Y;// remember y position of the poo.
+
+            poo2X = ClampScreenX(poo2X, pooWidth);// X componnt  adjustment
+
+            if (poo2X != poo2Xold) // Compare that with the old value.
+            {
+                poo2vx = -poo2vx;
+            }
+
+            poo2Y = ClampScreenY(poo2Y, pooHeight);
+            if (poo2Y != poo2Yold)
+            {
+                poo2vy = -poo2vy;
+            }
+        }
+
         if (IsColliding(dudeX, dudeY, dudeWidth, dudeHeight, poo0X, poo0Y, pooWidth, pooHeight))
         {
             poo0IsEaten = true;
