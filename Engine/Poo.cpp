@@ -29,3 +29,17 @@ void Poo::Update()
         vy = -vy;
     }
 }
+
+void Poo::Processconsumption(int dudex, int dudey, int dudewidth, int dudeheight)
+{
+    const int right0 = dudex + dudewidth;
+    const int bottom0 = dudey + dudeheight;
+    const int right1 = x + width;
+    const int bottom1 = y + height;
+
+    
+    if (right0 >= x && dudex <= right1 && bottom0 >= y && dudey <= bottom1)
+    {
+        isEaten = true;
+    }
+}
